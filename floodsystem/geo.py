@@ -24,3 +24,16 @@ def stations_within_radius(stations, centre, r):
         if item[1] < r:
             within_radius_list.append(item[0])
     return within_radius_list    #NB. This is a list of objects
+
+def rivers_with_station(stations):
+    '''function that returns a set of the names of a list of objects'''
+    output_list=[]
+    for item in stations:
+        output_list.append(item.river)
+    return set(output_list)
+
+def stations_by_river(stations):   #not going to work as intended yet
+    output_dict={}
+    for item in stations:
+        output_dict[item.river].append(item)
+    return output_dict
