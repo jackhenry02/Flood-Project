@@ -12,7 +12,7 @@ def run():
     for item in near_stations:
         output_list.append(item.name) #makes list of names
 
-    print(output_list)
+    print(sorted(output_list))
 
 
 

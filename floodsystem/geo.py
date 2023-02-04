@@ -32,8 +32,13 @@ def rivers_with_station(stations):
         output_list.append(item.river)
     return set(output_list)
 
-def stations_by_river(stations):   #not going to work as intended yet
+def stations_by_river(stations):  
+    '''function that returns a dictionary that maps river names to a list of station objects on a given river'''
     output_dict={}
     for item in stations:
-        output_dict[item.river].append(item)
+        if item.river in output_dict:
+            output_dict[item.river].append(item.name)
+        else:
+            output_dict[item.river]=[item.name]
     return output_dict
+
