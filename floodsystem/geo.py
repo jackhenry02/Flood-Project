@@ -26,7 +26,7 @@ def stations_within_radius(stations, centre, r):
     return within_radius_list    #NB. This is a list of objects
 
 def rivers_with_station(stations):
-    '''function that returns a set of the names of a list of objects'''
+    '''function that returns a set of the names of rivers with a station'''
     output_list=[]
     for item in stations:
         output_list.append(item.river)
