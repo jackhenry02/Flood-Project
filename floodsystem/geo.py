@@ -42,3 +42,24 @@ def stations_by_river(stations):
             output_dict[item.river]=[item.name]
     return output_dict
 
+def rivers_by_station_number(stations, N):
+    '''function that determines the rivers with the greatest number of monitoring stations'''
+    river_monitoring_stations = []
+    stations_by_river_dict = stations_by_river(stations)    # Calls the stations_by_river function and generates a dictionary of the river names and the locations associated with the rivers.
+
+    for river_name, locations in stations_by_river_dict.items():
+        river_monitoring_stations.append((river_name, len(locations)))      # Appends the rivers and the number of locations associated with each river.
+
+    sorted_list = sorted_by_key(river_monitoring_stations, 1, reverse=True)     # Sorts in relation to the magnitude of the number of locations.
+
+    output_list = []
+    river_name, num = zip(*sorted_list)     # Used to seperate the variables of the tuple list into seperate lists.
+
+    for i in range(len(sorted_list)):
+        if i < N:
+            pass
+        elif i >= N and num[i] != num[i - 1]:
+            break
+        output_list.append(sorted_list[i])
+
+    return output_list
