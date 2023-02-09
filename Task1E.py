@@ -2,7 +2,7 @@ from floodsystem.stationdata import build_station_list
 from floodsystem.geo import *
 
 def run():
-    """Requirements for Task 1D"""
+    """Requirements for Task 1E"""
 
     stations = build_station_list()     # Generates a list of stations.
     N = 9       # Number of stations with the most monitoring stations expected to be print.
@@ -12,5 +12,5 @@ def run():
 
 
 if __name__ == "__main__":       
-    print("*** Task 1C: CUED Part IA Flood Warning System ***")  
+    print("*** Task 1E: CUED Part IA Flood Warning System ***")  
     run()
