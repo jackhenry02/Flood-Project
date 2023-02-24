@@ -1,6 +1,8 @@
 from floodsystem.stationdata import build_station_list, update_water_levels
 from floodsystem.geo import *
 from floodsystem.station import *
+from floodsystem.flood import *
+
 
 def run():
     # Build list of stations
@@ -8,13 +10,10 @@ def run():
 
     # Update latest level data for all stations
     update_water_levels(stations)
-
-    # Print station and latest level for first 5 stations in list
     
-    for item in stations:
-        MonitoringStation.relative_water_level(item)
-
-
+    tol_list = stations_level_over_threshold(stations, 0.8)
+    for item in tol_list:
+        print(item[0].name,item[1])
 
 
 
