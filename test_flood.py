@@ -9,7 +9,7 @@ stations = [
     MonitoringStation('s_id5', 'm_id5', 'label5', (0.1,0), (9.04, 11.68), 'river3', 'town5')
 ]
 water_levels = [0.032, 1.2, 0.5, 2.3, 3.0]
-for i in water_levels
+#for i in water_levels:
 
 def test_stations_highest_rel_level(stations, N):
     stations_highest_risk = stations_highest_rel_level(stations, 3)
