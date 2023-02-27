@@ -36,7 +36,7 @@ def run():
     low_list = []
     for item in tol_list:
         dates, levels = fetch_measure_levels(item[0].measure_id, datetime.timedelta(days=1))
-        adj = (item[1]-(((levels[len(levels)//2])-(item[0].typical_range[0]))/(item[0].typical_range[1]-item[0].typical_range[0])))/2
+        adj = (item[1]-(((levels[len(levels)//2])-(item[0].typical_range[0]))/(item[0].typical_range[1]-item[0].typical_range[0])))/2    #adjustment taking into account the change in level in the last 12 hours
         if (item[1]+adj) > 1.4:                                   #adjusted tolerance over 1.4 is severe
             severe_list.append(item)    
         elif (item[1]+adj) > 1.2:                                 #adjusted tolerance of 1.2 to 1.4 is high
