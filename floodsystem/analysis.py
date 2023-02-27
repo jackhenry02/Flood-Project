@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 
-
 def polyfit(dates, levels, p):
+    '''function that returns a best fit polynomial and the offset date'''
     x = matplotlib.dates.date2num(dates)
     y = levels
     # Using shifted x values, find coefficient of best-fit
@@ -15,16 +15,6 @@ def polyfit(dates, levels, p):
     poly = np.poly1d(p_coeff)
     return (poly, x[0])
 
-
-
-#dt = 10
-#dates, levels = data.fetch_measure_levels(station[0].measure_id, dt=datetime.timedelta(days=dt))
-'''stations=build_station_list()  # Makes list of stations
-    update_water_levels(stations)
-    number_of_stations = 5
-
-    stations_highest_risk = stations_highest_rel_level(stations, number_of_stations)
-
-    for station in stations_highest_risk:
-        dates, levels = fetch_measure_levels(station[0].measure_id, datetime.timedelta(days=10))
-        plot_water_levels(station[0], dates, levels)'''
+def water_change(item, dates, levels):      #unused, possible way to figure out if water levels are rising
+    '''function that returns a tuple of the station name and the gradient of a 1st degree best fit'''
+    return(item.name, np.gradient(polyfit(dates, levels, 1)[0])) 
