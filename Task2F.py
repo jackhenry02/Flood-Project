@@ -9,14 +9,12 @@ def run():
     """Requirements for Task 2F"""
     stations=build_station_list()  # Makes list of stations
     update_water_levels(stations)
-    number_of_stations = 5
 
-    stations_highest_risk = stations_highest_rel_level(stations, number_of_stations)
+    stations_highest_risk = stations_highest_rel_level(stations, 5)
 
     for station in stations_highest_risk:
         dates, levels = fetch_measure_levels(station[0].measure_id, datetime.timedelta(days=2))
         plot_water_level_with_fit(station[0], dates, levels, 4)
-
 
 
 if __name__ == "__main__":       
