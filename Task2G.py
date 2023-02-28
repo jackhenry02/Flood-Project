@@ -6,7 +6,6 @@ from floodsystem.geo import *
 from floodsystem.station import *
 from floodsystem.flood import *
 from floodsystem.analysis import *
-import sympy
 
 '''
 possible criteria:
@@ -80,3 +79,6 @@ def run():
 if __name__ == "__main__":
     print("*** Task 2G: CUED Part IA Flood Warning System ***")
     run()
+
+
+#to run pytest: python3 -m pytest
