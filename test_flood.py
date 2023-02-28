@@ -1,5 +1,6 @@
 from floodsystem.flood import *
-from floodsystem.station import MonitoringStation
+from floodsystem.station import *
+from floodsystem.utils import *
 
 stations = [
     MonitoringStation('s_id1', 'm_id1', 'label1', (-2.0,4.0), (0.0073, 0.14), 'river1', 'town1'),
@@ -11,15 +12,13 @@ stations = [
 #water_levels = [0.032, 1.2, 0.5, 2.3, 3.0]
 #for i in water_levels:
 
-def stations_level_over_threshold_test(stations, tol):
+def stations_level_over_threshold_test():
+    tol = 0.5
     assert stations_level_over_threshold(stations, tol) == []
     assert type(stations_level_over_threshold(stations, tol)) == list
     assert len(stations_level_over_threshold(stations, tol)) == 0
 
 
-def test_stations_highest_rel_level(stations, N):
-    stations_highest_risk = stations_highest_rel_level(stations, N)
+def test_stations_highest_rel_level():
+    stations_highest_risk = stations_highest_rel_level(stations, 3)
     assert stations_highest_risk == None
-
-
-
