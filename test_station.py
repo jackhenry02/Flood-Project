@@ -42,7 +42,7 @@ def test_inconsistent_typical_range_stations():
     assert type(inconsistent_stations) == list
     assert len(inconsistent_stations) == 2
 
-def relative_water_level_test(stations):
+def relative_water_level_test():
      for item in stations:
         assert MonitoringStation.relative_water_level(item) == None
         #while item.typical_range[1] != item.typical_range[0]:

@@ -19,7 +19,3 @@ def polyfit_test(dates, levels, p):
     output = polyfit(dates, levels, p)
     assert type(output) == tuple
     
-
-
-
-print(polyfit_test(dates,levels, 1))
