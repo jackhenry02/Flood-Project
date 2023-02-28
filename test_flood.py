@@ -1,5 +1,5 @@
 from floodsystem.flood import *
-from floodsystem.station import MonitoringStation
+from floodsystem.station import MonitoringStation as MS
 
 stations = [
     MonitoringStation('s_id1', 'm_id1', 'label1', (-2.0,4.0), (0.0073, 0.14), 'river1', 'town1'),
@@ -10,6 +10,15 @@ stations = [
 ]
 water_levels = [0.032, 1.2, 0.5, 2.3, 3.0]
 #for i in water_levels:
+
+def relative_water_level_test(stations):
+     for item in stations:
+         assert MS.relative_water_level(item) == None
+
+
+'''assert output == output_list                        #checks correct output
+    assert type(output) == list                          #checks type
+    assert len(output) == len(stations) '''  
 
 def test_stations_highest_rel_level(stations, N):
     stations_highest_risk = stations_highest_rel_level(stations, 3)
