@@ -55,6 +55,8 @@ class MonitoringStation:
             return None
         elif self.latest_level == None:
             return None
+        elif self.typical_range[1] == self.typical_range[0]:
+            return None
         else:
             return ((self.latest_level)-(self.typical_range[0]))/(self.typical_range[1]-self.typical_range[0])
     

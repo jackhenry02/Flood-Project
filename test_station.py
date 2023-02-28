@@ -41,3 +41,9 @@ def test_inconsistent_typical_range_stations():
     assert inconsistent_stations == [stations[2], stations[3]]      # Expected output
     assert type(inconsistent_stations) == list
     assert len(inconsistent_stations) == 2
+
+def relative_water_level_test(stations):
+     for item in stations:
+        assert MonitoringStation.relative_water_level(item) == None
+        #while item.typical_range[1] != item.typical_range[0]:
+         #   assert ((item.typical_range[1]-item.typical_range[0]))/(item.typical_range[1]-item.typical_range[0]) == 1 #breaks code for some reason

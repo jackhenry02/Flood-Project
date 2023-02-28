@@ -26,7 +26,10 @@ def stations_highest_rel_level(stations, N):
             output_list.append((station, MonitoringStation.relative_water_level(station)))
     output_list.sort(key=lambda x: x[1], reverse=True)
 
-    for i in range(N):
-        stations_highest_risk.append(output_list[i])
+    if output_list == []:
+        return None
+    else:
+        for i in range(N):
+            stations_highest_risk.append(output_list[i])
 
-    return stations_highest_risk
+        return stations_highest_risk

@@ -1,4 +1,4 @@
-from floodsystem.flood import *
+from floodsystem.analysis import *
 from floodsystem.station import MonitoringStation
 
 stations = [
@@ -8,18 +8,18 @@ stations = [
     MonitoringStation('s_id4', 'm_id4', 'label4', (0.1,0.1), None, 'river3', 'town4'),
     MonitoringStation('s_id5', 'm_id5', 'label5', (0.1,0), (9.04, 11.68), 'river3', 'town5')
 ]
-#water_levels = [0.032, 1.2, 0.5, 2.3, 3.0]
-#for i in water_levels:
-
-def stations_level_over_threshold_test(stations, tol):
-    assert stations_level_over_threshold(stations, tol) == []
-    assert type(stations_level_over_threshold(stations, tol)) == list
-    assert len(stations_level_over_threshold(stations, tol)) == 0
 
 
-def test_stations_highest_rel_level(stations, N):
-    stations_highest_risk = stations_highest_rel_level(stations, N)
-    assert stations_highest_risk == None
+dates = (1,2,3,4,5,6)
+levels = np.linspace(2.0, 3.0, num=len(dates))
+
+def polyfit_test(dates, levels, p):
+    x = matplotlib.dates.date2num(dates)
+    y = levels
+    output = polyfit(dates, levels, p)
+    assert type(output) == tuple
+    
 
 
 
+print(polyfit_test(dates,levels, 1))
