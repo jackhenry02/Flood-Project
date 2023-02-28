@@ -43,7 +43,7 @@ def run():
             high_list.append(item)
         elif (item[1]+adj) > 1.0:                                 #adjusted tolerance of 1.0 to 1.2 is moderate
             moderate_list.append(item)
-        else:
+        elif (item[1]+adj) > 0.8:
             low_list.append(item)                           #adjusted tolerance of 0.8 to 1.0 is low
 
     print("Severe Risk:")
