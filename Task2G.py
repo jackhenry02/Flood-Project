@@ -64,9 +64,9 @@ def run():
     for item in low_list: 
         dates, levels = fetch_measure_levels(item[0].measure_id, datetime.timedelta(days=1))
         print(item[0].name,";","rel.lvl. is", item[1],";", "rel.rise in last 12 hours is", (item[1]-(((levels[len(levels)//2])-(item[0].typical_range[0]))/(item[0].typical_range[1]-item[0].typical_range[0]))))
-'''
-    
 
+    
+'''
     for item in tol_list:
         item = item[0]
         dates, levels = fetch_measure_levels(item.measure_id, datetime.timedelta(days=1))
